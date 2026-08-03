@@ -108,6 +108,11 @@
     color:var(--text); padding:13px; border-radius:10px; font-size:14px; font-weight:600;
     display:flex; align-items:center; justify-content:center; gap:8px; cursor:pointer;
   }
+
+  .trans-box{ margin-top:14px; background:rgba(245,163,0,0.07); border:1px solid var(--amber); border-radius:10px; padding:12px 14px; }
+  .trans-title{ font-size:12px; font-weight:700; color:var(--amber); margin-bottom:5px; display:flex; align-items:center; gap:6px; }
+  .trans-cond{ font-size:13.5px; line-height:1.5; color:var(--text); }
+  .trans-source{ font-size:9.5px; color:var(--text-dim); margin-top:6px; font-style:italic; }
   .maint-btn:active{ background:var(--amber-dim); }
   .maint-btn .ic{ font-size:16px; }
 
@@ -116,14 +121,47 @@
   .maint-title{ font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--amber); font-weight:700; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
   .verified-badge{ background:rgba(52,201,143,0.15); color:var(--prd); border:1px solid var(--prd); padding:2px 7px; border-radius:5px; font-size:9.5px; text-transform:none; letter-spacing:0; }
   .maint-source{ font-size:10.5px; color:var(--text-dim); margin:-4px 0 10px; font-style:italic; }
-  .maint-item{ display:flex; gap:10px; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:14px; }
+  .maint-item{ display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:14px; cursor:pointer; }
   .maint-item:last-child{ border-bottom:none; }
+  .maint-item.has-photo:active{ background:rgba(79,176,255,0.08); }
   .maint-item .tag{ font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; padding:2px 6px; border-radius:5px; background:var(--panel-2); color:var(--text-dim); height:fit-content; white-space:nowrap; }
+  .maint-item-text{ flex:1; }
+  .maint-item-body{ flex:1; display:flex; flex-direction:column; gap:2px; min-width:0; }
+  .maint-item-role{ font-size:11.5px; color:var(--amber); opacity:0.85; }
+  .photo-ic{ font-size:13px; opacity:0.7; flex-shrink:0; }
+
+  .photo-modal{ display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:100; align-items:center; justify-content:center; padding:20px; }
+  .photo-modal.show{ display:flex; }
+  .photo-modal-content{ background:var(--panel); border:1px solid var(--border); border-radius:14px; max-width:480px; width:100%; max-height:85vh; overflow:hidden; display:flex; flex-direction:column; }
+  .photo-modal-header{ display:flex; justify-content:space-between; align-items:center; padding:14px 16px; border-bottom:1px solid var(--border); font-size:14px; font-weight:600; }
+  .photo-modal-close{ background:var(--panel-2); border:1px solid var(--border); color:var(--text); width:28px; height:28px; border-radius:8px; font-size:14px; cursor:pointer; flex-shrink:0; }
+  #photoModalImg{ width:100%; max-height:65vh; object-fit:contain; display:block; background:#000; }
+  .photo-modal-info{ padding:12px 16px; border-top:1px solid var(--border); }
+  .info-title{ font-size:10.5px; text-transform:uppercase; letter-spacing:1px; color:var(--amber); font-weight:700; margin-bottom:6px; }
+  .info-action{ font-size:13px; color:var(--text); padding:3px 0; line-height:1.4; }
+  .photo-modal-empty{ display:none; padding:40px 24px; text-align:center; color:var(--text-dim); font-size:13px; line-height:1.6; }
+  .photo-empty-icon{ font-size:32px; margin-bottom:10px; opacity:0.5; }
   .maint-empty{ font-size:13px; color:var(--text-dim); line-height:1.5; }
 
   /* Browse list toggle */
   .browse-toggle{ text-align:center; margin-top:22px; }
   .browse-toggle button{ background:none; border:none; color:var(--text-dim); font-size:12px; text-decoration:underline; cursor:pointer; }
+
+  .mode-tabs{ display:flex; gap:8px; padding:0 18px; margin-top:4px; }
+  .mode-tab{ flex:1; background:var(--panel-2); border:1px solid var(--border); color:var(--text-dim); padding:10px; border-radius:10px; font-size:13px; font-weight:600; cursor:pointer; }
+  .mode-tab.active{ background:rgba(79,176,255,0.12); border-color:var(--amber); color:var(--amber); }
+
+  .alarm-card{ display:none; animation: rise 0.25s ease; }
+  .alarm-card.show{ display:block; }
+  .alarm-strip{ height:4px; border-radius:4px 4px 0 0; background:var(--danger); }
+  .alarm-type-badge{ font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; padding:4px 9px; border-radius:6px; color:#fff; }
+  .alarm-title{ font-size:16px; font-weight:700; line-height:1.35; margin:10px 0 14px; color:var(--text); }
+  .alarm-block{ margin-bottom:12px; }
+  .alarm-block-title{ font-size:10.5px; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-dim); font-weight:700; margin-bottom:4px; }
+  .alarm-block-text{ font-size:13.5px; line-height:1.5; color:var(--text); }
+  .alarm-block-instr .alarm-block-title{ color:var(--amber); }
+  .alarm-block-instr .alarm-block-text{ background:rgba(245,163,0,0.07); border:1px solid var(--amber); border-radius:8px; padding:10px 12px; }
+  .alarm-empty-block{ display:none; }
   .browse{ display:none; margin-top:14px; }
   .browse.show{ display:block; }
   .phase-group{ margin-bottom:16px; }
@@ -156,13 +194,18 @@
         <div class="clock-date" id="clockDate">-- --- ----</div>
       </div>
     </div>
-    <div class="header-sub">Tapez le numéro d'étape affiché sur l'automate</div>
+    <div class="header-sub" id="headerSub">Tapez le numéro d'étape affiché sur l'automate</div>
+  </div>
+
+  <div class="mode-tabs">
+    <button class="mode-tab active" id="tabSteps" onclick="setMode('steps')">🔧 Étapes</button>
+    <button class="mode-tab" id="tabAlarms" onclick="setMode('alarms')">🚨 Alarmes</button>
   </div>
 
   <div class="entry">
     <div class="display">
       <input id="stepInput" type="text" inputmode="numeric" placeholder="___" maxlength="3" autocomplete="off">
-      <div class="hint">ÉTAPE</div>
+      <div class="hint" id="entryHint">ÉTAPE</div>
       <button class="clear-btn" onclick="clearInput()">✕</button>
     </div>
     <div class="keypad" id="keypad"></div>
@@ -185,6 +228,12 @@
         <div class="desc" id="rDesc"></div>
         <span class="code-chip" id="rCode"></span>
 
+        <div class="trans-box" id="transBox" style="display:none;">
+          <div class="trans-title">⏭ Condition pour passer à l'étape <span id="transNext"></span></div>
+          <div class="trans-cond" id="transCond"></div>
+          <div class="trans-source">Source : schéma séquentiel officiel Tetra Pak — Tetra Therm Lacta (Doc. SD5845140252)</div>
+        </div>
+
         <button class="maint-btn" onclick="toggleMaint()">
           <span class="ic">🔧</span> Voir les points de maintenance
         </button>
@@ -200,6 +249,31 @@
       <button onclick="toggleBrowse()" id="browseBtn">Parcourir toutes les étapes par phase</button>
     </div>
     <div class="browse" id="browse"></div>
+
+    <div class="alarm-card" id="alarmCard">
+      <div class="alarm-strip" id="alarmStrip"></div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="etape-num" id="aCode"></div>
+          <span class="alarm-type-badge" id="aTypeBadge"></span>
+        </div>
+        <div class="alarm-title" id="aTitle"></div>
+
+        <div class="alarm-block" id="aCauseBlock">
+          <div class="alarm-block-title">Cause probable</div>
+          <div class="alarm-block-text" id="aCause"></div>
+        </div>
+        <div class="alarm-block" id="aActionBlock">
+          <div class="alarm-block-title">Réaction de la machine</div>
+          <div class="alarm-block-text" id="aAction"></div>
+        </div>
+        <div class="alarm-block alarm-block-instr">
+          <div class="alarm-block-title">🛠 Ce qu'il faut faire</div>
+          <div class="alarm-block-text" id="aInstr"></div>
+        </div>
+        <div class="trans-source">Source : Tetra Therm Lacta — Manuel Alarme et dépannage (Doc. OM-3282285-0401)</div>
+      </div>
+    </div>
   </div>
 
   <div class="footer">
@@ -209,6 +283,234 @@
 </div>
 
 <script>
+// Conditions officielles de passage à l'étape suivante — Tetra Pak "Tetra Therm Lacta", Step sequence SD5845140252
+const ALARMS = {
+  0: {t:"B", title:"Défaut milieu — Panne d'alimentation", cause:"Coupure d'alimentation / pas de tension après les fusibles.", action:"La fonction sera maintenue.", instr:"Contrôle d'alimentation."},
+  1: {t:"A", title:"Couvercle BTD ouvert", cause:"Couvercle BTD non fermé.", action:"Pas possible de remettre en marche la stérilisation, le NEP ou le NEP intermédiaire.", instr:"Vérifier si le détecteur de proximité GS1 est activé lorsque le couvercle est fermé."},
+  2: {t:"B", title:"Arrêt d'urgence enfoncé", cause:"Arrêt d'urgence activé.", action:"La fonction sera maintenue.", instr:"Vérifier ce qui a provoqué l'arrêt d'urgence puis réinitialiser le défaut."},
+  3: {t:"B", title:"Défaut de niveau — niveau sous LSM65", cause:"En dessous du niveau moyen dans le réservoir tampon en production.", action:"La production sera en Maintien et la circulation de produit se mettra en marche.", instr:"Vérifier/augmenter la pression d'admission vers le BTD. Vérifier/remplacer les vannes d'admission. Vérifier/remplacer le contacteur de niveau. Vérifier/ajuster le temps du filtre pour LSM."},
+  4: {t:"B", title:"Défaut niveau BTD — BTD vide (sous LSL65)", cause:"Vidage du réservoir tampon.", action:"La fonction sera maintenue.", instr:"Vérifier/augmenter la pression d'admission. Vérifier/remplacer le flotteur, les vannes d'admission, le contacteur de niveau. Vérifier/ajuster le temps du filtre pour LSL."},
+  5: {t:"A", title:"Défaut de température — temp. faible (TE45/TE71)", cause:"En dessous de la température de stérilisation pendant la stérilisation.", action:"", instr:"Vérifier/remplacer le Pt100. Vérifier qu'il y a de l'eau dans la section de chauffage. Augmenter la pression de vapeur. Ajuster la vanne 142. Isoler les tuyauteries si la salle est froide. Vérifier le robinet vapeur et le condenseur. Ajuster le paramètre de limite d'alarme."},
+  6: {t:"B", title:"Défaut de température — temp. past. trop faible (TE44/TE45)", cause:"Température de pasteurisation trop faible.", action:"La production est maintenue et la circulation de produit se met en marche.", instr:"Vérifier/remplacer le Pt100. Vérifier l'eau dans la section de chauffage. Augmenter la pression de vapeur. Ajuster la vanne 142. Vérifier le robinet vapeur et le condenseur. Ajuster le paramètre de limite d'alarme de production."},
+  7: {t:"B", title:"Défaut de température — temp. past. élevée (TE44/TE45)", cause:"Température de pasteurisation supérieure à celle autorisée.", action:"La production est maintenue et la circulation de produit se met en marche.", instr:"Ajuster les paramètres du contrôleur. Vérifier/remplacer le Pt100. Ajuster le paramètre de température autorisée."},
+  8: {t:"B", title:"Défaut de température — temp. sortie élevée (TE64)", cause:"Température de sortie trop élevée.", action:"La production est maintenue et la circulation de produit se met en marche.", instr:"Ajuster le débit d'eau de refroidissement. Vérifier/remplacer le Pt100. Ajuster la limite d'écart de température. Vérifier le robinet de sectionnement et le robinet de régulation."},
+  9: {t:"B", title:"Défaut de température — temp. sortie faible (TE64)", cause:"Température de sortie trop faible.", action:"La séquence passe à la circulation de produit.", instr:"Ajuster le débit d'eau de refroidissement. Vérifier/remplacer le Pt100. Ajuster la limite d'écart. Vérifier le robinet de sectionnement et de régulation."},
+  10: {t:"A", title:"Temps de circulation de produit trop long", cause:"Temps de circulation produit trop long.", action:"", instr:"Vérifier/ajuster le temps de circulation max."},
+  11: {t:"B", title:"Source non disponible — Absence S -> Validation M Prod", cause:"Source pas prête ou en défaut.", action:"La production est maintenue et la circulation de produit/eau se met en marche.", instr:"Vérifier la source."},
+  12: {t:"B", title:"Destination non disponible — Absence D -> Validation M ReclLP", cause:"Reprise destination LP pas prête ou arrêtée.", action:"La production est maintenue et la circulation se met en marche.", instr:"Vérifier la destination."},
+  13: {t:"A", title:"Défaut moteur — Défaut de réaction M1 (pompe d'alimentation)", cause:"Moteur ne fonctionne pas.", action:"", instr:"Vérifier/remplacer le moteur."},
+  14: {t:"A", title:"Pression d'air trop basse", cause:"Alimentation d'air basse / vanne de réduction d'air ou protection défaillante.", action:"", instr:"Vérifier la pression d'air (environ 6 bars). Vérifier/remplacer la vanne de réduction d'air. Ajuster/remplacer la protection de pression."},
+  15: {t:"A", title:"Défaut d'impulsion — Pas d'impulsion FT5", cause:"Faible débit.", action:"", instr:"Vérifier que les moteurs fonctionnent et les vannes correctes activées. Vérifier/remplacer la protection de faible débit et le transmetteur de débit."},
+  16: {t:"B", title:"Défaut moteur — Défaut de réaction M2 (pompe de produit)", cause:"Moteur en défaut ou protection surcharge déclenchée.", action:"La fonction sera maintenue.", instr:"Vérifier/remplacer le moteur. Vérifier le moteur et réinitialiser la surcharge."},
+  17: {t:"A", title:"Défaut moteur — Défaut de réaction M9 (pompe circ. eau chaude)", cause:"Moteur en défaut ou surcharge déclenchée.", action:"", instr:"Vérifier/remplacer le moteur. Réinitialiser la surcharge."},
+  18: {t:"B", title:"Défaut moteur — Défaut de réaction homogénéisateur", cause:"L'homogénéisateur ne fonctionne pas.", action:"La fonction sera maintenue.", instr:"Vérifier que l'arrêt d'urgence n'est pas appuyé. Vérifier le moteur et réinitialiser la surcharge."},
+  19: {t:"A", title:"Défaut NEP — Dosage collecteur de tête NEP trop lent", cause:"Délai de dosage trop long (cuve de dosage séparée).", action:"", instr:"Vérifier/remplacer les vannes V80, V81, V82. Vérifier/remplacer le transmetteur de niveau LT10."},
+  20: {t:"A", title:"Défaut de niveau — BTD plein (LSH65)", cause:"Niveau dans le réservoir tampon trop élevé.", action:"", instr:"Vérifier/remplacer le contacteur de niveau et les vannes d'admission. Ajuster la consigne de niveau haut."},
+  21: {t:"A", title:"Défaut de température — TE44 diffère de TE45 (TE44+3°C)", cause:"Écart de température entre TE44 et TE45 trop élevé.", action:"", instr:"Vérifier/remplacer le PT100."},
+  22: {t:"B", title:"Défaut de température — TE44 < consigne TIC44 (TE44+6°C)", cause:"Température de pasteurisation trop faible.", action:"La production est maintenue et la circulation se met en marche.", instr:"Ajuster les paramètres du contrôleur. Vérifier/remplacer le Pt100."},
+  23: {t:"B", title:"Défaut de température — TE44 cassé (< 2°C)", cause:"TE44 cassé.", action:"La fonction sera maintenue.", instr:"Vérifier/remplacer le PT100."},
+  24: {t:"B", title:"Défaut de température — TE44 élevée vs TIC40/44 SP (+11°C)", cause:"Température de pasteurisation trop élevée.", action:"Production maintenue, circulation de produit en marche, valeur coupée.", instr:"Ajuster les paramètres du contrôleur. Vérifier/remplacer le Pt100."},
+  25: {t:"B", title:"Tetra Alcross pas prêt", cause:"Voir affichage Tetra Alcross.", action:"Production maintenue, circulation de produit en marche.", instr:"Vérifier/réinitialiser le défaut Tetra Alcross."},
+  26: {t:"B", title:"Défaut de température — TE45 cassé (< 2°C)", cause:"TE45 cassé.", action:"La fonction sera maintenue.", instr:"Vérifier/remplacer le PT100."},
+  27: {t:"B", title:"Défaut moteur — Défaut de réaction M12 (pompe dosage soude)", cause:"Moteur en défaut ou surcharge.", action:"Le NEP intermédiaire et le NEP normal seront en Maintien.", instr:"Vérifier/remplacer le moteur. Réinitialiser la surcharge."},
+  28: {t:"B", title:"Défaut moteur — Défaut de réaction M13 (pompe dosage acide)", cause:"Moteur en défaut ou surcharge.", action:"Le NEP intermédiaire et le NEP normal seront en Maintien.", instr:"Vérifier/remplacer le moteur. Réinitialiser la surcharge."},
+  29: {t:"B", title:"Défaut de vanne — Défaut de réaction V122 (dérivation à chaud)", cause:"Défaut de réaction sur la vanne.", action:"La fonction sera maintenue.", instr:"Vérifier/remplacer l'électrovanne. Vérifier/serrer le raccord de flexible d'air. Vérifier/remplacer le capteur de réaction."},
+  30: {t:"A", title:"Défaut débit — débit faible (FT5/FT41)", cause:"Transmetteur de débit défaillant.", action:"", instr:"Vérifier que les moteurs fonctionnent et les vannes correctes activées. Vérifier/remplacer le détecteur de faible débit et le transmetteur de débit."},
+  31: {t:"B", title:"Défaut de débit — débit élevé (FT5/FT41)", cause:"Transmetteur de débit défaillant.", action:"Production maintenue, circulation de produit en marche.", instr:"Vérifier que les vannes correctes sont activées. Vérifier/remplacer le détecteur et le transmetteur de débit."},
+  32: {t:"B", title:"Défaut système extérieur — Absence NEP -> validation M Système", cause:"Système NEP pas prêt ou en défaut.", action:"Stérilisation, NEP intermédiaire et NEP normal seront en Maintien.", instr:"Vérifier le NEP central."},
+  33: {t:"B", title:"Absence D -> Validation M Prod", cause:"Destination pas prête ou en défaut.", action:"Production maintenue, circulation en marche.", instr:"Vérifier la destination."},
+  34: {t:"B", title:"Défaut de pression — pression différentielle basse échangeur", cause:"Pression différentielle trop basse.", action:"Production maintenue, circulation en marche.", instr:"Vérifier/remplacer les transmetteurs de pression. Ajuster la limite de pression différentielle. Vérifier les réglages de pression sur la vanne CPM V124."},
+  35: {t:"B", title:"Destination non disponible — Absence D -> validation M RecIHP", cause:"Reprise destination HP pas prête ou arrêtée.", action:"Production maintenue, circulation en marche.", instr:"Vérifier la destination."},
+  36: {t:"B", title:"Défaut de vanne — Défaut de réaction V84 (vidange détergent)", cause:"Défaut de réaction.", action:"La fonction sera maintenue.", instr:"Vérifier/remplacer l'électrovanne. Serrer le raccord flexible air. Vérifier/remplacer le capteur de réaction."},
+  37: {t:"B", title:"Défaut moteur — Défaut de réaction M6 (pompe d'appoint)", cause:"Moteur en défaut ou surcharge.", action:"La fonction sera maintenue.", instr:"Vérifier/remplacer le moteur. Réinitialiser la surcharge."},
+  38: {t:"A", title:"Défaut moteur — Défaut de feedback M20 (pompe circ. eau chaude)", cause:"Moteur en défaut.", action:"", instr:"Vérifier le moteur M20."},
+  39: {t:"B", title:"Défaut de niveau — niveau élevé collecteur de tête NEP", cause:"Niveau dans la cuve détergent trop élevé.", action:"La fonction sera maintenue.", instr:"Vérifier/remplacer le contacteur de niveau 50, le transmetteur de niveau 10, les vannes 80, 82, 85."},
+  40: {t:"A", title:"Défaut NEP — collecteur de tête NEP pas vide à temps", cause:"Pas de niveau bas atteint avant décharge du détergent.", action:"", instr:"Vérifier/remplacer les vannes 80, 81, 82, 84, 85. Vérifier le transmetteur de niveau 10. Ajuster la limite de niveau bas (LSL10-LIM)."},
+  41: {t:"B", title:"Défaut de communication — serveur (lait destination)", cause:"Communication perdue.", action:"Production maintenue, circulation en marche.", instr:"Vérifier/remplacer le câble et la prise Ethernet. Ajuster la configuration de communication."},
+  42: {t:"A", title:"Alarme Tetra Alfast Plus", cause:"Alarme dans le Tetra Alfast Plus.", action:"", instr:"Vérifier/réinitialiser le défaut Tetra Alfast Plus."},
+  43: {t:"B", title:"Défaut moteur — Défaut de réaction M7 (pompe appoint séparateur)", cause:"Moteur en défaut ou surcharge.", action:"La fonction sera maintenue.", instr:"Vérifier/remplacer le moteur. Réinitialiser la surcharge."},
+  44: {t:"B", title:"Défaut moteur — Défaut de réaction M8 (pompe appoint bactofuge)", cause:"Moteur en défaut ou surcharge.", action:"Production maintenue, circulation en marche.", instr:"Vérifier le moteur et réinitialiser la surcharge. Vérifier/remplacer le moteur."},
+  45: {t:"A", title:"Dosage manuel — temps pour doser la soude", cause:"Temps pour ajouter du détergent dans le BTD.", action:"", instr:"Ajouter de la soude dans le réservoir tampon."},
+  46: {t:"A", title:"Dosage manuel — temps pour doser l'acide", cause:"Temps pour ajouter de l'acide dans le BTD.", action:"", instr:"Ajouter de l'acide dans le réservoir tampon."},
+  47: {t:"A", title:"Défaut de réaction M11 (pompe à vide)", cause:"Moteur ne fonctionne pas.", action:"", instr:"Vérifier/remplacer le moteur."},
+  48: {t:"A", title:"Défaut moteur — Défaut de réaction M5 (pompe désaérateur)", cause:"Moteur ne fonctionne pas.", action:"La fonction sera maintenue.", instr:"Vérifier/remplacer le moteur."},
+  49: {t:"A", title:"Phase d'avance au temps max au lieu du volume", cause:"Temporisateur max de sécurité expiré avant niveau bas BTD atteint, ou avant volume atteint.", action:"", instr:"Vérifier/ajuster le paramètre de temporisateur de sécurité max. Vérifier/remplacer le contact de niveau bas BTD. Ajuster le paramètre de volume de remplissage/vidage. Vérifier/remplacer le transmetteur de débit."},
+  50: {t:"B", title:"Défaut de communication — serveur (crème destination)", cause:"Communication perdue.", action:"Production maintenue, circulation en marche.", instr:"Vérifier/remplacer le câble et la prise Ethernet. Ajuster la configuration de communication."},
+  51: {t:"A", title:"Avance phase de figeage activée", cause:"Figeage de la phase effectué à des fins d'essai.", action:"", instr:"Information — pas d'action requise en fonctionnement normal."},
+  52: {t:"B", title:"Vitesse séparateur/bactofuge/clarificateur pas bonne", cause:"Vitesse du séparateur ou bactofuge trop faible.", action:"La fonction sera maintenue.", instr:"Vérifier dans le TeM du séparateur ou bactofuge ce qu'il faut faire."},
+  53: {t:"B", title:"Défaut de communication — serveur (Source)", cause:"Communication perdue.", action:"La séquence passe à la circulation de produit.", instr:"Vérifier/remplacer le câble et la prise Ethernet. Ajuster la configuration de communication."},
+  54: {t:"A", title:"Produit mélangé", cause:"Remplissage/vidage interrompu, mélange eau et lait dans la machine.", action:"Production maintenue, circulation de produit en marche.", instr:"Vérifier le TPOP pour lire le % de lait dans la machine et agir en conséquence (nouveau remplissage, remplissage de reprise...)."},
+  55: {t:"B", title:"Destination non disponible — Absence D -> validation M_C Prod", cause:"Crème de destination pas prête ou en défaut.", action:"Production maintenue, circulation en marche.", instr:"Vérifier la destination de la crème."},
+  56: {t:"B", title:"Destination non disponible — Absence D -> validation M Vidange", cause:"Vidange de destination pas prête ou en défaut.", action:"Production maintenue, circulation en marche.", instr:"Vérifier la destination."},
+  57: {t:"B", title:"Absence ObjOutletM -> validation M Obj", cause:"Pas de signal OK externe quand nécessaire.", action:"Stérilisation, NEP intermédiaire et NEP normal seront en Maintien.", instr:"Vérifier le système qui traite les conduits de destination."},
+  58: {t:"B", title:"Absence ObjInlet -> validation M Obj", cause:"Pas de signal OK externe quand nécessaire.", action:"Stérilisation, NEP intermédiaire et NEP normal seront en Maintien.", instr:"Vérifier le système qui traite les conduits d'arrivée."},
+  59: {t:"A", title:"Source non disponible — Absence S -> validation M Eau", cause:"Eau de la source pas prête ou en défaut.", action:"Le vidage du conduit peut être omis jusqu'à la machine.", instr:"Vérifier la source."},
+  60: {t:"B", title:"Défaut homogénéisateur — défaut de pression de produit", cause:"Pression homogénéisateur trop faible.", action:"Production maintenue, circulation en marche.", instr:"Vérifier dans le TeM d'homogénéisateur ce qu'il faut faire."},
+  61: {t:"B", title:"Défaut NEP — conductivité faible", cause:"Faible conductivité pendant la circulation.", action:"Séquence d'augmentation de concentration si dosage interne; minuterie en Maintien pendant durée de faible concentration.", instr:"Vérifier/remplacer la sonde de conductivité. Vérifier le % de détergent concentré. Ajuster le réglage d'alarme de conductivité basse."},
+  62: {t:"A", title:"Touche changement fonctionnement à distance/local", cause:"Commutateur mis en local après fonctionnement à distance.", action:"", instr:"Information — vérifier le mode de fonctionnement souhaité."},
+  63: {t:"A", title:"Nettoyage recommandé", cause:"Recommandation de vider et démarrer un nettoyage.", action:"", instr:"Planifier un nettoyage prochainement."},
+  64: {t:"A", title:"Défaut moteur — Défaut de réaction M10 (pompe circ. eau chaude)", cause:"Moteur en défaut ou surcharge.", action:"", instr:"Vérifier/remplacer le moteur. Réinitialiser la surcharge."},
+  65: {t:"B", title:"Défaut de communication — séparateur", cause:"Communication perdue.", action:"La fonction sera maintenue.", instr:"Vérifier/remplacer le câble de communication. Ajuster les commutateurs sur la carte de communication."},
+  66: {t:"B", title:"Défaut de communication — bactofuge", cause:"Communication perdue.", action:"La fonction sera maintenue.", instr:"Vérifier/remplacer le câble de communication. Ajuster les commutateurs sur la carte de communication."},
+  67: {t:"B", title:"Défaut de communication — Tetra Alfast Plus", cause:"Communication perdue.", action:"Production maintenue, circulation en marche.", instr:"Vérifier/remplacer le câble et la prise Ethernet. Ajuster la configuration."},
+  68: {t:"A", title:"Défaut séparateur", cause:"Alarme dans le séparateur — voir affichage séparateur.", action:"", instr:"Vérifier/réinitialiser le défaut sur l'affichage du séparateur."},
+  69: {t:"A", title:"Défaut bactofuge", cause:"Alarme au bactofuge — voir affichage bactofuge.", action:"", instr:"Vérifier/réinitialiser le défaut sur l'affichage du bactofuge."},
+  70: {t:"A", title:"Défaut homogénéisateur — niveau d'huile élevé dans le carter", cause:"", action:"", instr:"Vérifier dans le TeM pour homogénéisateur."},
+  71: {t:"A", title:"Défaut homogénéisateur — température élevée", cause:"", action:"", instr:"Vérifier dans le TeM pour homogénéisateur."},
+  72: {t:"A", title:"Défaut homogénéisateur — niveau d'huile bas dans le carter", cause:"", action:"", instr:"Vérifier dans le TeM pour homogénéisateur."},
+  73: {t:"A", title:"Défaut homogénéisateur — filtre obstrué dans le carter", cause:"", action:"", instr:"Vérifier dans le TeM pour homogénéisateur."},
+  74: {t:"A", title:"Défaut homogénéisateur — filtre obstrué dans la transmission", cause:"", action:"", instr:"Vérifier dans le TeM pour homogénéisateur."},
+  75: {t:"B", title:"Défaut homogénéisateur — pression d'huile faible dans le carter", cause:"", action:"", instr:"Vérifier dans le TeM pour homogénéisateur."},
+  76: {t:"A", title:"Défaut homogénéisateur — filtre obstrué dans la transmission", cause:"", action:"", instr:"Vérifier dans le TeM pour homogénéisateur."},
+  77: {t:"A", title:"Défaut homogénéisateur — défaut de temp. d'huile carter", cause:"", action:"", instr:"Vérifier dans le TeM pour homogénéisateur."},
+  78: {t:"A", title:"Défaut homogénéisateur — défaut de temp. d'huile transmission", cause:"", action:"", instr:"Vérifier dans le TeM pour homogénéisateur."},
+  79: {t:"B", title:"Défaut de communication — serveur (NEP)", cause:"Communication perdue.", action:"Stérilisation, NEP intermédiaire et NEP normal seront en Maintien.", instr:"Vérifier/remplacer le câble et la prise Ethernet. Ajuster la configuration."},
+  80: {t:"B", title:"Tetra Alcross pas prêt — dérivation de membrane", cause:"Membrane dérivée dans le Tetra Alcross.", action:"Production maintenue, circulation en marche.", instr:"Membrane dérivée pour vider le Tetra Alcross en reprise. Mise en marche du vidage pour reprise LP/HP."},
+  81: {t:"B", title:"Défaut de température — temp. past. faible sous limite légale (TE44/TE45)", cause:"Température de pasteurisation trop faible, sous la limite légale.", action:"Passage à circulation, puis dérivation eau chaude (Hot divert) si vanne V122 incluse ; sinon nettoyage/stérilisation requis avant nouvelle production.", instr:"Vérifier/remplacer le Pt100. Vérifier l'eau dans la section de chauffage. Augmenter la pression de vapeur. Ajuster la vanne 142. Vérifier le robinet vapeur et le condenseur."},
+  82: {t:"A", title:"Recette non valable sélectionnée", cause:"Changement d'équipement inclus dans une recette en cours interdit.", action:"Si passage à recette non valide : vider, nettoyer et stériliser avant nouvelle production.", instr:"Ne pas modifier l'équipement (désaérateur/homogénéisateur) pendant que la machine est pleine de produit."},
+  83: {t:"A", title:"Enregistreur Jumo — mémoire flash pleine", cause:"", action:"", instr:"Remplacement du disque."},
+  84: {t:"B", title:"Défaut homogénéisateur — arrêt d'urgence appuyé", cause:"", action:"La fonction sera maintenue.", instr:"Vérifier l'arrêt d'urgence de l'homogénéisateur."},
+  85: {t:"B", title:"Défaut de séparateur — panne de démarrage", cause:"Défaut pendant la séquence de configuration du séparateur.", action:"", instr:"Voir affichage séparateur."},
+  86: {t:"B", title:"Défaut bactofuge — panne de démarrage", cause:"Défaut pendant la séquence de configuration du bactofuge.", action:"", instr:"Voir affichage bactofuge."},
+  87: {t:"A", title:"Défaut NEP — vidage d'urgence collecteur de tête NEP", cause:"Niveau de détergent dans le collecteur NEP pas à la bonne phase.", action:"Vidage du réservoir collecteur NEP vers vidange.", instr:"Vérifier/remplacer le transmetteur de niveau. Vérifier les vannes V80, V82, V85 (fuites)."},
+  88: {t:"B", title:"Défaut de communication — Tetra Alcross", cause:"Communication perdue.", action:"Production maintenue, circulation en marche.", instr:"Vérifier/remplacer le câble et la prise Ethernet. Ajuster la configuration."},
+  89: {t:"B", title:"Défaut Tetra Alcross — supervision temp. faible HTT", cause:"Défaut de température sur le Tetra Alcross.", action:"Production maintenue, circulation en marche.", instr:"Vider la machine et le Tetra Alcross, nettoyer et stériliser avant nouvelle production."},
+  90: {t:"B", title:"Tetra Alcross pas prêt — demande circulation générale", cause:"Rétentat du Tetra Alcross redérivé dans le BTD.", action:"Production maintenue, circulation en marche.", instr:"Possible de remettre en marche la production."},
+  91: {t:"A", title:"Changement de produit complet", cause:"Changement de produit terminé (démarré depuis circulation).", action:"Production maintenue, circulation en marche.", instr:"Possible de remettre en marche la production."},
+  92: {t:"B", title:"Destination non disponible — Absence D -> validation M_C Reclaim HP", cause:"Reprise crème destination HP pas prête ou arrêtée.", action:"Production maintenue, circulation en marche.", instr:"Vérifier la destination de la crème."},
+  93: {t:"B", title:"Destination non disponible — Absence D -> validation M_C Reclaim LP", cause:"Reprise crème destination LP pas prête ou arrêtée.", action:"Production maintenue, circulation en marche.", instr:"Vérifier la destination de la crème."},
+  94: {t:"B", title:"Destination non disponible — Absence D -> validation M_C Vidange", cause:"Vidange destination crème pas prête ou en défaut.", action:"Production maintenue, circulation en marche.", instr:"Vérifier la destination de la crème."},
+  95: {t:"A", title:"Volume cible — volume lait atteint", cause:"Volume cible demandé atteint.", action:"Production maintenue, circulation en marche.", instr:"Possible de remettre en marche la production."},
+  96: {t:"A", title:"Volume cible — volume crème atteint", cause:"Volume cible demandé atteint.", action:"Production maintenue, circulation en marche.", instr:"Possible de remettre en marche la production."},
+  97: {t:"A", title:"Défaut homogénéisateur — pression faible entrée", cause:"Pression faible à l'entrée de l'homogénéisateur.", action:"", instr:"Vérifier que les moteurs fonctionnent. Augmenter la valeur du convertisseur de fréquence de la pompe si valeur fixe. Ajuster le réglage de limite faible."},
+  98: {t:"A", title:"Défaut homogénéisateur — pression eau de refroidissement faible", cause:"Pression d'eau de refroidissement faible (PSL846).", action:"", instr:"Vérifier dans le TeM pour homogénéisateur."},
+  99: {t:"A", title:"Défaut d'impulsion — pas d'impulsion FT41", cause:"Faible débit.", action:"", instr:"Vérifier que les moteurs fonctionnent et les vannes correctes activées. Vérifier/remplacer la protection de faible débit et le transmetteur de débit."},
+  100: {t:"A", title:"Pas autorisé de changer la température de past./thermisation", cause:"Interdit de modifier la température de chauffage en cours de recette.", action:"", instr:"Nettoyer et stériliser avant de faire fonctionner la machine dans un autre mode (pasteurisateur/thermiseur)."},
+  101: {t:"B", title:"Source non disponible — Absence S -> validation M additive Prod", cause:"Source d'additif pas prête ou en défaut.", action:"Production maintenue, circulation en marche.", instr:"Vérifier la source d'additif."},
+  102: {t:"A", title:"Défaut moteur — Défaut de réaction M15 (circuit refroidissement pompe circ. Alrox)", cause:"Moteur ne fonctionne pas.", action:"", instr:"Vérifier/remplacer le moteur. Réinitialiser la surcharge."},
+  103: {t:"A", title:"Défaut Alrox — température élevée circuit de refroidissement", cause:"", action:"", instr:"Ajuster les paramètres du contrôleur. Vérifier/remplacer le Pt100."},
+  104: {t:"A", title:"Défaut Alrox — niveau d'eau bas dans le BTD du circuit fermé", cause:"Niveau d'eau bas dans le BTD du circuit fermé.", action:"", instr:"Vérifier le niveau d'eau et les fuites du circuit fermé."},
+  105: {t:"A", title:"Défaut moteur — Défaut de réaction M16 (circuit refroidissement crème)", cause:"Moteur ne fonctionne pas.", action:"", instr:"Vérifier/remplacer le moteur. Réinitialiser la surcharge."},
+  106: {t:"A", title:"Défaut refroidisseur de crème — température élevée circuit", cause:"", action:"", instr:"Ajuster les paramètres du contrôleur. Vérifier/remplacer le Pt100."},
+  107: {t:"B", title:"Défaut moteur — Défaut de réaction M4 (pompe produit refroidisseur crème)", cause:"Moteur ne fonctionne pas.", action:"La fonction sera maintenue.", instr:"Vérifier/remplacer le moteur. Réinitialiser la surcharge."},
+  108: {t:"B", title:"Défaut de vanne — Défaut de réaction V122B (dériv. chaude)", cause:"Vanne ne fonctionne pas.", action:"", instr:"Vérifier/remplacer l'électrovanne. Serrer le raccord flexible air. Vérifier/remplacer le capteur de réaction."},
+  109: {t:"B", title:"Défaut de vanne — Défaut de réaction V122C (dériv. chaude)", cause:"Vanne ne fonctionne pas.", action:"", instr:"Vérifier/remplacer l'électrovanne. Serrer le raccord flexible air. Vérifier/remplacer le capteur de réaction."},
+  110: {t:"C", title:"Pas de past. — couvercle BTD ouvert et température passée faible (TE44/TE45)", cause:"Couvercle BTD ouvert et température passée faible.", action:"Évite d'aller en dérivation chaude, règle l'état non passé.", instr:"Fermer le couvercle BTD et vérifier la température."},
+  111: {t:"A", title:"Chgt produit pendant compensation crème — contrôler %MG destination lait", cause:"Tetra Alfast n'a pas terminé la compensation crème avant sélection de la nouvelle recette.", action:"Le lait en destination peut avoir un % MG incorrect.", instr:"Prélever un échantillon dans le réservoir de destination."},
+  112: {t:"A", title:"Défaut de température — TE43 différent de SP", cause:"Température TE43 hors limite recommandée (risque de mousse si désaérateur inclus).", action:"", instr:"Vérifier les réglages PID du contrôleur TIC43. Vérifier que la section eau chaude est remplie et le débit."},
+  113: {t:"A", title:"Défaut de communication — hôte (station opérateur)", cause:"Problème de communication avec l'IHM des stations opérateur.", action:"", instr:"Vérifier le câblage et le paramètre d'IP. Redémarrer HMI/PLC."},
+  114: {t:"A", title:"Défaut de retour d'information — refroidisseur du tableau", cause:"Le refroidisseur du panneau a envoyé une alarme.", action:"", instr:"Vérifier/remplacer le refroidisseur d'air. Vérifier l'alimentation en air principale."},
+  115: {t:"A", title:"Annulation d'allocation système par station NEP", cause:"", action:"", instr:"Vérifier pourquoi désaffecté au poste NEP principal. Réallouer la machine au NEP."},
+  116: {t:"A", title:"Système pas dans file NEP", cause:"La machine a été éjectée de la file de la station NEP.", action:"", instr:"Vérifier pourquoi mise hors file au poste NEP principal. Remettre la machine dans la file NEP."},
+  117: {t:"A", title:"Défaut Tetra Alcross — membrane sale, vide et NEP", cause:"La membrane du Tetra Alcross est sale.", action:"", instr:"Vider la machine et le Tetra Alcross et démarrer un NEP."},
+  118: {t:"B", title:"Défaut de fusible", cause:"Défaut de fusible.", action:"La machine passe en arrêt provisoire.", instr:"Vérifier/réenclencher le fusible. Redémarrer la machine."},
+  119: {t:"A", title:"Changement d'équipement non autorisé", cause:"Tentative de passer à une nouvelle recette avec un équipement différent (désaérateur, homogénéisateur, chambreur) de la recette en cours.", action:"", instr:"Terminer la production en cours avant de changer d'équipement."},
+  120: {t:"A", title:"V122A fuite vers BTD", cause:"Fonctionnement contre vanne fermée créant une pression de retour élevée.", action:"", instr:"Vérifier le côté destination."},
+  121: {t:"A", title:"Remplissage d'air interrompu — LSL901 pas atteint (amortisseur 1)", cause:"Alimentation ou temps de remplissage d'air trop faible.", action:"", instr:"Vérifier l'alimentation de remplissage d'air. Augmenter le paramètre de temps de remplissage si trop bas."},
+  122: {t:"A", title:"Remplissage d'air interrompu — LSL902 pas atteint (amortisseur 2)", cause:"Alimentation ou temps de remplissage d'air trop faible.", action:"", instr:"Vérifier l'alimentation de remplissage d'air. Augmenter le paramètre de temps de remplissage si trop bas."},
+  140: {t:"A", title:"Défaut enregistreur — tampon plein (Siemens)", cause:"", action:"", instr:"Assistance pour dépannage. Si cela subsiste, contacter l'assistance Tetra Pak."},
+  141: {t:"A", title:"Défaut enregistreur — limite d'alarme tampon dépassée (Siemens)", cause:"", action:"", instr:"Assistance pour dépannage. Si cela subsiste, contacter l'assistance Tetra Pak."},
+  142: {t:"A", title:"Défaut enregistreur — pas de données de réponse (Siemens)", cause:"", action:"", instr:"Assistance pour dépannage. Si cela subsiste, contacter l'assistance Tetra Pak."},
+  143: {t:"A", title:"Défaut enregistreur — réponse d'erreur (Siemens)", cause:"", action:"", instr:"Assistance pour dépannage. Si cela subsiste, contacter l'assistance Tetra Pak."},
+  144: {t:"A", title:"Défaut système — erreur interne (Siemens)", cause:"", action:"", instr:"Assistance pour dépannage. Si cela subsiste, contacter l'assistance Tetra Pak."},
+  145: {t:"A", title:"Défaut système — défaut système critique (Siemens)", cause:"", action:"", instr:"Assistance pour dépannage. Si cela subsiste, contacter l'assistance Tetra Pak."},
+  146: {t:"A", title:"Défaut système — priorité temps de cycle (Siemens)", cause:"", action:"", instr:"Assistance pour dépannage. Si cela subsiste, contacter l'assistance Tetra Pak."},
+  147: {t:"A", title:"Défaut système — défaut alimentation 24V (Siemens)", cause:"", action:"", instr:"Assistance pour dépannage. Si cela subsiste, contacter l'assistance Tetra Pak."},
+  148: {t:"A", title:"Défaut système — défaut alimentation batterie de secours (Siemens)", cause:"", action:"", instr:"Assistance pour dépannage. Si cela subsiste, contacter l'assistance Tetra Pak."},
+  149: {t:"A", title:"Défaut système — défaut système d'alimentation de secours (Siemens)", cause:"", action:"", instr:"Assistance pour dépannage. Si cela subsiste, contacter l'assistance Tetra Pak."},
+  150: {t:"A", title:"Défaut système — défaut diagnostic sur module (Siemens)", cause:"", action:"", instr:"Assistance pour dépannage. Si cela subsiste, contacter l'assistance Tetra Pak."},
+  151: {t:"A", title:"Défaut système — module enlevé/ajouté (Siemens)", cause:"", action:"", instr:"Assistance pour dépannage. Si cela subsiste, contacter l'assistance Tetra Pak."},
+  152: {t:"A", title:"Défaut système — défaut interne UC (Siemens)", cause:"", action:"", instr:"Assistance pour dépannage. Si cela subsiste, contacter l'assistance Tetra Pak."},
+  153: {t:"A", title:"Défaut système — défaut d'adresse, défaut module (Siemens)", cause:"", action:"", instr:"Assistance pour dépannage. Si cela subsiste, contacter l'assistance Tetra Pak."},
+  154: {t:"A", title:"Défaut système — défaut bus DP (Siemens)", cause:"", action:"", instr:"Assistance pour dépannage. Si cela subsiste, contacter l'assistance Tetra Pak."},
+  155: {t:"A", title:"Défaut système — défaut communication interne UC (Siemens)", cause:"", action:"", instr:"Assistance pour dépannage. Si cela subsiste, contacter l'assistance Tetra Pak."},
+  156: {t:"A", title:"Défaut système — défaut programme (Siemens)", cause:"", action:"", instr:"Assistance pour dépannage. Si cela subsiste, contacter l'assistance Tetra Pak."},
+  157: {t:"A", title:"Défaut système — E/S défaut d'accès, module enlevé (Siemens)", cause:"", action:"", instr:"Assistance pour dépannage. Si cela subsiste, contacter l'assistance Tetra Pak."},
+  158: {t:"A", title:"Défaut système — remise en marche UC (Siemens)", cause:"", action:"", instr:"Assistance pour dépannage. Si cela subsiste, contacter l'assistance Tetra Pak."},
+};
+
+const TRANSITIONS = {
+  0:   { next: 2,   cond: "Déclenché par l'opérateur/superviseur (\"Sterilisation RUN\")" },
+  2:   { next: 3,   cond: "Vitesse OK séparateur/bactofuge, OU bypass séparateur/bactofuge activé" },
+  3:   { next: 4,   cond: "Minuteur écoulé" },
+  4:   { next: 5,   cond: "Minuteur écoulé" },
+  5:   { next: 10,  cond: "Niveau bas atteint (LSL65)" },
+  10:  { next: 15,  cond: "Minuteur écoulé" },
+  15:  { next: 20,  cond: "TT45 > seuil TSL71 ET TT71 > seuil TS71 ET minuteur écoulé ET vitesse OK séparateur/bactofuge" },
+  20:  { next: 25,  cond: "Minuteur de stérilisation écoulé (passage direct à l'étape 49 si arrêt d'urgence et TT44/TT45 au-dessus de la limite haute)" },
+  25:  { next: "35 ou 45", cond: "Cycle de bascule (flip) terminé — puis : si TT45 < seuil ou en Held → circulation d'eau (45), sinon → refroidissement (35)" },
+  35:  { next: 40,  cond: "Minuteur écoulé" },
+  40:  { next: 45,  cond: "TT44 et TT64 dans les plages cibles ET minuteur (ou passage direct si TT45 sous seuil ou en Held)" },
+  45:  { next: "selon mode", cond: "Attente du choix opérateur : \"Production RUN\", \"CIP RUN\" ou \"IC RUN\" (ou passage à 49 si arrêt d'urgence et température haute)" },
+  49:  { next: 50,  cond: "Vitesse OK séparateur/bactofuge" },
+  50:  { next: 55,  cond: "Niveau bas atteint (LSL65) ou minuteur max" },
+  55:  { next: 0,   cond: "Minuteur écoulé OU TT44 et TT45 sous la limite de refroidissement" },
+
+  103: { next: 104, cond: "Minuteur écoulé (ou démarré depuis la circulation d'eau étape 155)" },
+  104: { next: 105, cond: "Niveau LT65 dans la limite ET signal production à l'unité, ou minuteur max" },
+  105: { next: 106, cond: "Volume atteint ou minuteur max" },
+  106: { next: 110, cond: "Volume atteint ou minuteur max" },
+  110: { next: 115, cond: "Niveau bas atteint (LSL65) ou minuteur max" },
+  115: { next: 117, cond: "Minuteur écoulé, ou pas de séparateur inclus" },
+  117: { next: 122, cond: "Volume (si confirmé) ou minuteur" },
+  122: { next: 123, cond: "Volume (si confirmé) ou minuteur" },
+  123: { next: 124, cond: "Volume (si confirmé) ou minuteur" },
+  124: { next: 125, cond: "Volume (si confirmé) ou minuteur" },
+  125: { next: 130, cond: "Déclenché par \"Production HELD\" (manuel ou condition d'arrêt)" },
+  130: { next: 131, cond: "Demande de circulation eau / IC / CIP / Shutdown en attente, ou mode vidange sélectionné" },
+  131: { next: 132, cond: "Vitesse OK, ou vidange non démarrée depuis l'étape 0" },
+  132: { next: 133, cond: "Compteur production à l'unité = 0, OU minuteur" },
+  133: { next: 134, cond: "Volume ou minuteur max" },
+  134: { next: 135, cond: "Niveau bas atteint (LSL65) ou minuteur max" },
+  135: { next: 136, cond: "Volume ou minuteur max" },
+  136: { next: 140, cond: "Niveau bas atteint (LSL65) ou minuteur max" },
+  140: { next: 142, cond: "Minuteur écoulé, ou pas de séparateur inclus" },
+  142: { next: 143, cond: "Volume (si confirmé) ou minuteur" },
+  143: { next: 147, cond: "Volume (si confirmé) ou minuteur" },
+  147: { next: 148, cond: "Volume (si confirmé) ou minuteur" },
+  148: { next: 149, cond: "Volume (si confirmé) ou minuteur" },
+  149: { next: 150, cond: "Volume (si confirmé) ou minuteur" },
+  150: { next: 155, cond: "Minuteur écoulé" },
+  155: { next: "selon mode", cond: "Attente du choix opérateur (retour production, CIP, IC...)" },
+  160: { next: 163, cond: "Niveau bas atteint (LSL65) ou minuteur max" },
+  163: { next: 0,   cond: "Minuteur écoulé OU températures sous la limite de refroidissement" },
+
+  202: { next: 203, cond: "Vitesse OK séparateur/bactofuge" },
+  203: { next: 204, cond: "Signal externe prêt, OU CIP interne" },
+  204: { next: 205, cond: "Minuteur écoulé" },
+  205: { next: 207, cond: "Niveau bas atteint (LSL65) ou minuteur max (peut sauter directement à 210 si vidange complète incluse dans le dernier rinçage)" },
+  207: { next: 210, cond: "Minuteur écoulé" },
+  210: { next: 240, cond: "Minuteur écoulé — passe au dosage soude (pas de phase de lessive supplémentaire configurée)" },
+  240: { next: 245, cond: "Minuteur (dosage automatique) ou redémarrage manuel du NEP" },
+  245: { next: 250, cond: "Température TSL64 non atteinte ET minuteur écoulé" },
+  250: { next: 252, cond: "Température TSL64 non atteinte ET minuteur ET phase de circulation configurée, puis cycles de bascule (flip) terminés" },
+  252: { next: 253, cond: "Cycles de bascule (flip) terminés" },
+  253: { next: 255, cond: "Minuteur écoulé" },
+  255: { next: 257, cond: "Niveau bas atteint (LSL65) ou minuteur max" },
+  257: { next: 258, cond: "Minuteur écoulé ET lessive/acide sélectionné" },
+  258: { next: 259, cond: "Minuteur écoulé" },
+  259: { next: 265, cond: "Minuteur écoulé — passe au dosage acide" },
+  265: { next: 270, cond: "Minuteur (dosage automatique) ou redémarrage manuel du NEP" },
+  270: { next: 275, cond: "Température TSL64 non atteinte ET minuteur écoulé" },
+  275: { next: 277, cond: "Température TSL64 non atteinte ET minuteur ET phase de circulation configurée, puis cycles de bascule (flip) terminés" },
+  277: { next: 278, cond: "Cycles de bascule (flip) terminés" },
+  278: { next: 280, cond: "Minuteur écoulé" },
+  280: { next: 282, cond: "Niveau bas atteint (LSL65) ou minuteur max" },
+  282: { next: 295, cond: "Minuteur écoulé" },
+  295: { next: 296, cond: "Cycle de bascule (flip) terminé" },
+  296: { next: 298, cond: "Minuteur écoulé" },
+  298: { next: 0,   cond: "Minuteur écoulé — retour à l'état Repos (0)" },
+
+  304: { next: 308, cond: "Minuteur, puis vidange (niveau bas LSL65 ou minuteur max)" },
+  308: { next: 310, cond: "Minuteur écoulé" },
+  310: { next: 315, cond: "Minuteur (dosage automatique) ou redémarrage manuel" },
+  315: { next: 319, cond: "Minuteur écoulé" },
+  319: { next: 320, cond: "Minuteur écoulé" },
+  320: { next: 325, cond: "Niveau bas atteint (LSL65) ou minuteur max" },
+  325: { next: 327, cond: "Minuteur écoulé" },
+  327: { next: 0,   cond: "Minuteur écoulé ET cycle de bascule (flip) terminé — retour à l'état Repos (0)" },
+};
+
 const PHASES = {
   STE: { name: "Stérilisation", color: "#e08a3c", note: "Départ étape 0, après un NEP complet" },
   PRD: { name: "Production", color: "#34c98f", note: "Départ étape 45, 155 ou 130" },
@@ -331,7 +633,7 @@ const MAINT = {
   122: [{tag:"VANNE", text:"Vanne V122A"}, {tag:"VANNE", text:"Vanne V122B"}, {tag:"VANNE", text:"Vanne V124"}, {tag:"CAPTEUR", text:"Capteur température TIC43"}, {tag:"CAPTEUR", text:"Capteur température TIC44 / TIC40 / V141"}, {tag:"CAPTEUR", text:"Capteur température TIC64 / V151"}, {tag:"CAPTEUR", text:"Débitmètre FIC5"}, {tag:"CAPTEUR", text:"Capteur d'occupation objet K160"}, {tag:"POMPE", text:"Pompe / moteur M2"}, {tag:"POMPE", text:"Moteur M6 (vanne V131)"}, {tag:"POMPE", text:"Moteur M7"}, {tag:"POMPE", text:"Moteur M9"}, {tag:"POMPE", text:"Moteur M10"}, {tag:"VANNE", text:"Vanne V103"}],
   123: [{tag:"VANNE", text:"Vanne V122A"}, {tag:"VANNE", text:"Vanne V122B"}, {tag:"VANNE", text:"Vanne V124"}, {tag:"CAPTEUR", text:"Capteur température TIC43"}, {tag:"CAPTEUR", text:"Capteur température TIC44 / TIC40 / V141"}, {tag:"CAPTEUR", text:"Capteur température TIC64 / V151"}, {tag:"CAPTEUR", text:"Débitmètre FIC5"}, {tag:"CAPTEUR", text:"Capteur d'occupation objet K160"}, {tag:"POMPE", text:"Pompe / moteur M2"}, {tag:"POMPE", text:"Moteur M6 (vanne V131)"}, {tag:"POMPE", text:"Moteur M7"}, {tag:"POMPE", text:"Moteur M9"}, {tag:"POMPE", text:"Moteur M10"}, {tag:"VANNE", text:"Vanne V103"}],
   124: [{tag:"VANNE", text:"Vanne V122A"}, {tag:"VANNE", text:"Vanne V122B"}, {tag:"VANNE", text:"Vanne V124"}, {tag:"CAPTEUR", text:"Capteur température TIC43"}, {tag:"CAPTEUR", text:"Capteur température TIC44 / TIC40 / V141"}, {tag:"CAPTEUR", text:"Capteur température TIC64 / V151"}, {tag:"CAPTEUR", text:"Débitmètre FIC5"}, {tag:"CAPTEUR", text:"Capteur d'occupation objet K160"}, {tag:"POMPE", text:"Pompe / moteur M2"}, {tag:"POMPE", text:"Moteur M6 (vanne V131)"}, {tag:"POMPE", text:"Moteur M7"}, {tag:"POMPE", text:"Moteur M9"}, {tag:"POMPE", text:"Moteur M10"}, {tag:"VANNE", text:"Vanne V103"}],
-  125: [{tag:"VANNE", text:"Vanne V114 (ligne principale)"}, {tag:"VANNE", text:"Vanne V122A"}, {tag:"VANNE", text:"Vanne V122B"}, {tag:"VANNE", text:"Vanne V124"}, {tag:"CAPTEUR", text:"Capteur température TIC43"}, {tag:"CAPTEUR", text:"Capteur température TIC44 / TIC40 / V141"}, {tag:"CAPTEUR", text:"Capteur température TIC64 / V151"}, {tag:"CAPTEUR", text:"Débitmètre FIC5"}, {tag:"CAPTEUR", text:"Capteur d'occupation objet K160"}, {tag:"POMPE", text:"Pompe / moteur M2"}, {tag:"POMPE", text:"Moteur M6 (vanne V131)"}, {tag:"POMPE", text:"Moteur M7"}, {tag:"POMPE", text:"Moteur M9"}, {tag:"POMPE", text:"Moteur M10"}, {tag:"VANNE", text:"Vanne V102"}, {tag:"VANNE", text:"Vanne V103"}],
+  125: [{tag:"POMPE", text:"Pompe / moteur M2"}, {tag:"POMPE", text:"Moteur M6 (vanne V131)"}, {tag:"POMPE", text:"Moteur M7"}, {tag:"POMPE", text:"Moteur M9"}, {tag:"POMPE", text:"Moteur M10"}, {tag:"VANNE", text:"Vanne V102"}, {tag:"VANNE", text:"Vanne V103"}, {tag:"VANNE", text:"Vanne V104 (entrée BTD)"}, {tag:"VANNE", text:"Vanne V119"}, {tag:"VANNE", text:"Vanne V122A"}, {tag:"VANNE", text:"Vanne V122B"}, {tag:"VANNE", text:"Vanne V124"}, {tag:"VANNE", text:"Vanne V125"}, {tag:"VANNE", text:"Vanne V126"}, {tag:"VANNE", text:"Vanne V127"}, {tag:"VANNE", text:"Vanne V140 / V141"}, {tag:"VANNE", text:"Vanne V150 / V151"}, {tag:"VANNE", text:"Vanne V193"}, {tag:"VANNE", text:"Vanne V240"}],
   130: [{tag:"VANNE", text:"Vanne V120 - position intermédiaire"}, {tag:"VANNE", text:"Vanne V120 - position active"}, {tag:"VANNE", text:"Vanne V124"}, {tag:"CAPTEUR", text:"Capteur température TIC43"}, {tag:"CAPTEUR", text:"Capteur température TIC44 / TIC40 / V141"}, {tag:"CAPTEUR", text:"Capteur température TIC64 / V151"}, {tag:"CAPTEUR", text:"Débitmètre FIC5"}, {tag:"CAPTEUR", text:"Capteur d'occupation objet K160"}, {tag:"POMPE", text:"Pompe / moteur M2"}, {tag:"POMPE", text:"Moteur M6 (vanne V131)"}, {tag:"POMPE", text:"Moteur M7"}, {tag:"POMPE", text:"Moteur M9"}, {tag:"POMPE", text:"Moteur M10"}, {tag:"VANNE", text:"Vanne V99"}, {tag:"VANNE", text:"Vanne V100"}, {tag:"VANNE", text:"Vanne V102"}, {tag:"VANNE", text:"Vanne V103"}],
   131: [{tag:"VANNE", text:"Vanne V104 (entrée BTD)"}, {tag:"VANNE", text:"Vanne V114 (ligne principale)"}, {tag:"VANNE", text:"Vanne V122A"}, {tag:"VANNE", text:"Vanne V122B"}, {tag:"VANNE", text:"Vanne V124"}, {tag:"CAPTEUR", text:"Capteur température TIC43"}, {tag:"CAPTEUR", text:"Capteur température TIC44 / TIC40 / V141"}, {tag:"CAPTEUR", text:"Capteur température TIC64 / V151"}, {tag:"POMPE", text:"Pompe / moteur M2"}, {tag:"POMPE", text:"Moteur M6 (vanne V131)"}, {tag:"POMPE", text:"Moteur M7"}, {tag:"POMPE", text:"Moteur M9"}, {tag:"POMPE", text:"Moteur M10"}, {tag:"VANNE", text:"Vanne V102"}, {tag:"VANNE", text:"Vanne V103"}],
   132: [{tag:"VANNE", text:"Vanne V104 (entrée BTD)"}, {tag:"VANNE", text:"Vanne V114 (ligne principale)"}, {tag:"VANNE", text:"Vanne V122A"}, {tag:"VANNE", text:"Vanne V122B"}, {tag:"VANNE", text:"Vanne V124"}, {tag:"CAPTEUR", text:"Capteur température TIC43"}, {tag:"CAPTEUR", text:"Capteur température TIC44 / TIC40 / V141"}, {tag:"CAPTEUR", text:"Capteur température TIC64 / V151"}, {tag:"CAPTEUR", text:"Débitmètre FIC5"}, {tag:"CAPTEUR", text:"Capteur d'occupation objet K160"}, {tag:"POMPE", text:"Pompe / moteur M2"}, {tag:"POMPE", text:"Moteur M6 (vanne V131)"}, {tag:"POMPE", text:"Moteur M7"}, {tag:"POMPE", text:"Moteur M9"}, {tag:"POMPE", text:"Moteur M10"}, {tag:"VANNE", text:"Vanne V102"}, {tag:"VANNE", text:"Vanne V103"}],
@@ -340,9 +642,9 @@ const MAINT = {
   135: [{tag:"VANNE", text:"Vanne V122A"}, {tag:"VANNE", text:"Vanne V122B"}, {tag:"VANNE", text:"Vanne V124"}, {tag:"CAPTEUR", text:"Capteur température TIC43"}, {tag:"CAPTEUR", text:"Capteur température TIC44 / TIC40 / V141"}, {tag:"CAPTEUR", text:"Capteur température TIC64 / V151"}, {tag:"CAPTEUR", text:"Débitmètre FIC5"}, {tag:"CAPTEUR", text:"Capteur d'occupation objet K160"}, {tag:"POMPE", text:"Pompe / moteur M2"}, {tag:"POMPE", text:"Moteur M6 (vanne V131)"}, {tag:"POMPE", text:"Moteur M7"}, {tag:"POMPE", text:"Moteur M9"}, {tag:"POMPE", text:"Moteur M10"}, {tag:"VANNE", text:"Vanne V102"}, {tag:"VANNE", text:"Vanne V103"}],
   136: [{tag:"VANNE", text:"Vanne V122A"}, {tag:"VANNE", text:"Vanne V122B"}, {tag:"VANNE", text:"Vanne V124"}, {tag:"CAPTEUR", text:"Capteur température TIC43"}, {tag:"CAPTEUR", text:"Capteur température TIC44 / TIC40 / V141"}, {tag:"CAPTEUR", text:"Capteur température TIC64 / V151"}, {tag:"CAPTEUR", text:"Débitmètre FIC5"}, {tag:"CAPTEUR", text:"Capteur d'occupation objet K160"}, {tag:"POMPE", text:"Pompe / moteur M2"}, {tag:"POMPE", text:"Moteur M6 (vanne V131)"}, {tag:"POMPE", text:"Moteur M7"}, {tag:"POMPE", text:"Moteur M9"}, {tag:"POMPE", text:"Moteur M10"}, {tag:"VANNE", text:"Vanne V103"}],
   140: [{tag:"VANNE", text:"Vanne V122A"}, {tag:"VANNE", text:"Vanne V122B"}, {tag:"VANNE", text:"Vanne V124"}, {tag:"CAPTEUR", text:"Capteur température TIC43"}, {tag:"CAPTEUR", text:"Capteur température TIC44 / TIC40 / V141"}, {tag:"CAPTEUR", text:"Capteur température TIC64 / V151"}, {tag:"CAPTEUR", text:"Débitmètre FIC5"}, {tag:"CAPTEUR", text:"Capteur d'occupation objet K160"}, {tag:"POMPE", text:"Pompe / moteur M2"}, {tag:"POMPE", text:"Moteur M6 (vanne V131)"}, {tag:"POMPE", text:"Moteur M7"}, {tag:"POMPE", text:"Moteur M9"}, {tag:"POMPE", text:"Moteur M10"}, {tag:"VANNE", text:"Vanne V99"}, {tag:"VANNE", text:"Vanne V100"}, {tag:"VANNE", text:"Vanne V103"}],
-  142: [{tag:"VANNE", text:"Vanne V122A"}, {tag:"VANNE", text:"Vanne V122B"}, {tag:"VANNE", text:"Vanne V124"}, {tag:"CAPTEUR", text:"Capteur température TIC43"}, {tag:"CAPTEUR", text:"Capteur température TIC44 / TIC40 / V141"}, {tag:"CAPTEUR", text:"Capteur température TIC64 / V151"}, {tag:"CAPTEUR", text:"Débitmètre FIC5"}, {tag:"CAPTEUR", text:"Capteur d'occupation objet K160"}, {tag:"POMPE", text:"Pompe / moteur M2"}, {tag:"POMPE", text:"Moteur M6 (vanne V131)"}, {tag:"POMPE", text:"Moteur M7"}, {tag:"POMPE", text:"Moteur M9"}, {tag:"POMPE", text:"Moteur M10"}, {tag:"VANNE", text:"Vanne V99"}, {tag:"VANNE", text:"Vanne V100"}, {tag:"VANNE", text:"Vanne V103"}],
+  142: [{tag:"POMPE", text:"Pompe / moteur M2"}, {tag:"POMPE", text:"Moteur M6 (vanne V131)"}, {tag:"POMPE", text:"Moteur M7"}, {tag:"POMPE", text:"Moteur M9"}, {tag:"POMPE", text:"Moteur M10"}, {tag:"VANNE", text:"Vanne V99"}, {tag:"VANNE", text:"Vanne V100"}, {tag:"VANNE", text:"Vanne V103"}, {tag:"VANNE", text:"Vanne V104 (entrée BTD)"}, {tag:"VANNE", text:"Vanne V119"}, {tag:"VANNE", text:"Vanne V122A"}, {tag:"VANNE", text:"Vanne V122B"}, {tag:"VANNE", text:"Vanne V124"}, {tag:"VANNE", text:"Vanne V125"}, {tag:"VANNE", text:"Vanne V126"}, {tag:"VANNE", text:"Vanne V127"}, {tag:"VANNE", text:"Vanne V140 / V141"}, {tag:"VANNE", text:"Vanne V150 / V151"}, {tag:"VANNE", text:"Vanne V193"}, {tag:"VANNE", text:"Vanne V240"}],
   143: [{tag:"VANNE", text:"Vanne V122A"}, {tag:"VANNE", text:"Vanne V122B"}, {tag:"VANNE", text:"Vanne V124"}, {tag:"CAPTEUR", text:"Capteur température TIC43"}, {tag:"CAPTEUR", text:"Capteur température TIC44 / TIC40 / V141"}, {tag:"CAPTEUR", text:"Capteur température TIC64 / V151"}, {tag:"CAPTEUR", text:"Débitmètre FIC5"}, {tag:"CAPTEUR", text:"Capteur d'occupation objet K160"}, {tag:"POMPE", text:"Pompe / moteur M2"}, {tag:"POMPE", text:"Moteur M6 (vanne V131)"}, {tag:"POMPE", text:"Moteur M7"}, {tag:"POMPE", text:"Moteur M9"}, {tag:"POMPE", text:"Moteur M10"}, {tag:"VANNE", text:"Vanne V99"}, {tag:"VANNE", text:"Vanne V100"}, {tag:"VANNE", text:"Vanne V103"}],
-  147: [{tag:"VANNE", text:"Vanne V122A"}, {tag:"VANNE", text:"Vanne V122B"}, {tag:"VANNE", text:"Vanne V124"}, {tag:"CAPTEUR", text:"Capteur température TIC43"}, {tag:"CAPTEUR", text:"Capteur température TIC44 / TIC40 / V141"}, {tag:"CAPTEUR", text:"Capteur température TIC64 / V151"}, {tag:"CAPTEUR", text:"Débitmètre FIC5"}, {tag:"CAPTEUR", text:"Capteur d'occupation objet K160"}, {tag:"POMPE", text:"Pompe / moteur M2"}, {tag:"POMPE", text:"Moteur M6 (vanne V131)"}, {tag:"POMPE", text:"Moteur M7"}, {tag:"POMPE", text:"Moteur M9"}, {tag:"POMPE", text:"Moteur M10"}, {tag:"VANNE", text:"Vanne V99"}, {tag:"VANNE", text:"Vanne V100"}, {tag:"VANNE", text:"Vanne V103"}],
+  147: [{tag:"POMPE", text:"Pompe / moteur M2"}, {tag:"POMPE", text:"Moteur M6 (vanne V131)"}, {tag:"POMPE", text:"Moteur M7"}, {tag:"POMPE", text:"Moteur M9"}, {tag:"POMPE", text:"Moteur M10"}, {tag:"VANNE", text:"Vanne V99"}, {tag:"VANNE", text:"Vanne V100"}, {tag:"VANNE", text:"Vanne V103"}, {tag:"VANNE", text:"Vanne V104 (entrée BTD)"}, {tag:"VANNE", text:"Vanne V119"}, {tag:"VANNE", text:"Vanne V122A"}, {tag:"VANNE", text:"Vanne V122B"}, {tag:"VANNE", text:"Vanne V124"}, {tag:"VANNE", text:"Vanne V140 / V141"}, {tag:"VANNE", text:"Vanne V150 / V151"}, {tag:"VANNE", text:"Vanne V193"}, {tag:"VANNE", text:"Vanne V240"}],
   148: [{tag:"VANNE", text:"Vanne V122A"}, {tag:"VANNE", text:"Vanne V122B"}, {tag:"VANNE", text:"Vanne V124"}, {tag:"CAPTEUR", text:"Capteur température TIC43"}, {tag:"CAPTEUR", text:"Capteur température TIC44 / TIC40 / V141"}, {tag:"CAPTEUR", text:"Capteur température TIC64 / V151"}, {tag:"CAPTEUR", text:"Débitmètre FIC5"}, {tag:"CAPTEUR", text:"Capteur d'occupation objet K160"}, {tag:"DOSAGE", text:"Poste dosage lessive en circulation (M12 / V80)"}, {tag:"POMPE", text:"Pompe / moteur M2"}, {tag:"POMPE", text:"Moteur M6 (vanne V131)"}, {tag:"POMPE", text:"Moteur M7"}, {tag:"POMPE", text:"Moteur M9"}, {tag:"POMPE", text:"Moteur M10"}, {tag:"VANNE", text:"Vanne V99"}, {tag:"VANNE", text:"Vanne V100"}, {tag:"VANNE", text:"Vanne V103"}],
   149: [{tag:"VANNE", text:"Vanne V122A"}, {tag:"VANNE", text:"Vanne V122B"}, {tag:"VANNE", text:"Vanne V124"}, {tag:"CAPTEUR", text:"Capteur température TIC43"}, {tag:"CAPTEUR", text:"Capteur température TIC44 / TIC40 / V141"}, {tag:"CAPTEUR", text:"Capteur température TIC64 / V151"}, {tag:"CAPTEUR", text:"Débitmètre FIC5"}, {tag:"CAPTEUR", text:"Capteur d'occupation objet K160"}, {tag:"POMPE", text:"Pompe / moteur M2"}, {tag:"POMPE", text:"Moteur M6 (vanne V131)"}, {tag:"POMPE", text:"Moteur M7"}, {tag:"POMPE", text:"Moteur M9"}, {tag:"POMPE", text:"Moteur M10"}, {tag:"VANNE", text:"Vanne V99"}, {tag:"VANNE", text:"Vanne V100"}, {tag:"VANNE", text:"Vanne V103"}],
   150: [{tag:"VANNE", text:"Vanne V122A"}, {tag:"VANNE", text:"Vanne V122B"}, {tag:"VANNE", text:"Vanne V124"}, {tag:"CAPTEUR", text:"Capteur température TIC43"}, {tag:"CAPTEUR", text:"Capteur température TIC44 / TIC40 / V141"}, {tag:"CAPTEUR", text:"Capteur température TIC64 / V151"}, {tag:"CAPTEUR", text:"Débitmètre FIC5"}, {tag:"POMPE", text:"Pompe / moteur M2"}, {tag:"POMPE", text:"Moteur M6 (vanne V131)"}, {tag:"POMPE", text:"Moteur M7"}, {tag:"POMPE", text:"Moteur M9"}, {tag:"POMPE", text:"Moteur M10"}, {tag:"VANNE", text:"Vanne V99"}, {tag:"VANNE", text:"Vanne V100"}, {tag:"VANNE", text:"Vanne V103"}],
@@ -384,7 +686,94 @@ const MAINT = {
 };
 
 // Étapes confirmées directement sur l'écran de l'automate (capture réelle)
-const VERIFIED_STEPS = new Set([155]);
+const VERIFIED_STEPS = new Set([125, 142, 147, 155]);
+const VERIFIED_DATES = { 155: "15/07/2026", 125: "27/07/2026", 142: "27/07/2026", 147: "27/07/2026" };
+
+// Photos réelles des équipements sur la machine (à compléter au fur et à mesure)
+const EQUIPMENT_PHOTOS = {
+  "M2": "images/m2_m10.jpg",
+  "M10": "images/m2_m10.jpg",
+  "M6": "images/m6_m7.jpg",
+  "M7": "images/m6_m7.jpg",
+  "V122": "images/v122.jpg",
+  "V122A": "images/v122.jpg",
+  "V122B": "images/v122.jpg",
+  "V159": "images/v159.jpg",
+  "V158": "images/v159.jpg",
+  "V131": "images/v131_new.jpg",
+  "V143": "images/v143.jpg",
+  "V117": "images/v117.jpg",
+  "FT41": "images/ft41.jpg",
+  "V193A": "images/v193a.jpg",
+  "V193": "images/v193a.jpg",
+};
+
+// Fiche officielle équipement — Check List journalière LACTA 30M (nom + actions à vérifier)
+const EQUIPMENT_INFO = {
+  "PC1": { name: "Pressure regulator FRL", actions: ["Contrôle des fuites d'air", "Vérification de l'état"] },
+  "M2": { name: "Pompe soutirage", actions: ["Contrôler bruit pompe", "Contrôle des fuites produit et l'eau"] },
+  "CV101": { name: "Clapet anti-retour", actions: ["Contrôle des fuites produit et l'eau"] },
+  "V99": { name: "Vanne de l'eau", actions: [] },
+  "V100": { name: "Vanne égout", actions: [] },
+  "V102": { name: "Vanne d'entrée produit", actions: [] },
+  "V103": { name: "Vanne anti gavage", actions: [] },
+  "V104": { name: "Vanne sortie produit", actions: [] },
+  "V105": { name: "Vanne d'arrêt ligne nettoyage", actions: [] },
+  "V107": { name: "Vanne égout", actions: [] },
+  "V158": { name: "Vanne nettoyage ligne d'entrée", actions: [] },
+  "V159": { name: "Vanne nettoyage ligne d'entrée", actions: [] },
+  "V119": { name: "Vanne de régulation BTD", actions: [] },
+  "V124": { name: "Vanne contre pression", actions: [] },
+  "V112": { name: "Vanne boule de nettoyage", actions: ["Contrôle des fuites produit, eau et air"] },
+  "V115": { name: "Vanne déviation de nettoyage", actions: ["Vérification de l'état"] },
+  "V114": { name: "Vanne arrêt étape production", actions: [] },
+  "V126": { name: "Vanne arrêt étape production", actions: [] },
+  "V125": { name: "Vanne arrêt étape production", actions: [] },
+  "V85": { name: "Vanne pousse à l'eau circuit nettoyage", actions: [] },
+  "V161": { name: "Vanne de circuit de la crème", actions: [] },
+  "V150": { name: "Vanne d'arrêt eau glacée", actions: [] },
+  "V151": { name: "Vanne de régulation eau glacée", actions: [] },
+  "V80": { name: "Vanne de la soude", actions: [] },
+  "V81": { name: "Vanne de l'acide (dosage)", actions: [] },
+  "V84A": { name: "Vanne de CIP (injection soude et acide)", actions: [] },
+  "V84B": { name: "Vanne égout", actions: [] },
+  "V82": { name: "Vanne de l'acide", actions: [] },
+  "V113": { name: "Vanne arrêt étape production", actions: [] },
+  "SV": { name: "Prise échantillon", actions: ["Contrôle des fuites produit et l'eau"] },
+  "BTD": { name: "Bac tampon", actions: ["Contrôle des fuites produit et l'eau"] },
+  "M7": { name: "Pompe de l'envoi supérieur", actions: ["Contrôler bruit pompe", "Vérifier eau de refroidissement garniture", "Contrôle des fuites produit et l'eau"] },
+  "M9": { name: "Pompe de circulation eau chaude", actions: ["Contrôler bruit pompe", "Vérifier eau de refroidissement garniture", "Contrôle des fuites produit et l'eau"] },
+  "M10": { name: "Pompe de circulation eau chaude", actions: ["Contrôler bruit pompe", "Vérifier eau de refroidissement garniture", "Contrôle des fuites produit et l'eau"] },
+  "M6": { name: "Pompe booster", actions: ["Contrôler bruit pompe", "Vérifier eau de refroidissement garniture", "Contrôle des fuites produit et l'eau"] },
+  "CS65": { name: "Conductivimètre", actions: ["Vérification de l'état"] },
+  "PT82": { name: "Transmetteur de pression", actions: ["Contrôle des fuites produit et eau", "Vérification de l'état"] },
+  "PT83": { name: "Transmetteur de pression", actions: ["Contrôle des fuites produit et eau", "Vérification de l'état"] },
+  "PT86": { name: "Transmetteur de pression", actions: ["Contrôle des fuites produit et eau", "Vérification de l'état"] },
+  "PT87": { name: "Transmetteur de pression", actions: ["Contrôle des fuites produit et eau", "Vérification de l'état"] },
+  "PT90": { name: "Transmetteur de pression", actions: ["Contrôle des fuites produit et eau", "Vérification de l'état"] },
+  "PT91": { name: "Transmetteur de pression", actions: ["Contrôle des fuites produit et eau", "Vérification de l'état"] },
+  "V122A": { name: "Vanne déviation produit", actions: [] },
+  "V122B": { name: "Vanne déviation produit", actions: [] },
+  "V120": { name: "Vanne préchauffage", actions: ["Contrôle des fuites produit, eau et air", "Vérification de l'état"] },
+  "V145": { name: "Vanne circulation eau chaude", actions: ["Contrôle des fuites produit, eau et air", "Vérification de l'état"] },
+  "V140": { name: "Vanne d'arrêt vapeur", actions: ["Contrôle des fuites produit, eau et air", "Vérification de l'état"] },
+  "V141": { name: "Vanne de régulation vapeur", actions: ["Contrôle des fuites produit, eau et air", "Vérification de l'état"] },
+  "V142": { name: "Vanne de régulation de débit manuelle", actions: ["Contrôle des fuites produit, eau et air", "Vérification de l'état"] },
+  "V143": { name: "Vanne de vidange", actions: ["Contrôle des fuites produit, eau et air", "Vérification de l'état"] },
+  "V130": { name: "Vanne eau de refroidissement garniture", actions: [] },
+  "V131": { name: "Vanne eau de refroidissement garniture", actions: [] },
+  "V210": { name: "Vanne bay passe homo", actions: [] },
+  "V240": { name: "Vanne régulation température eau", actions: [] },
+  "LT65": { name: "Transmetteur de niveau", actions: ["Vérification de l'état"] },
+  "PHE1": { name: "Échangeur à plaques", actions: ["Contrôle des fuites produit et l'eau"] },
+  "HE5": { name: "Échangeur de chaleur à plaques brasées", actions: ["Contrôle des fuites vapeur et l'eau"] },
+  "V192": { name: "Vanne entre séparateur", actions: ["Contrôle des fuites produit et l'eau", "Vérification de l'état"] },
+  "V193A": { name: "Vanne by-pass bactofuge", actions: ["Contrôle des fuites produit et l'eau", "Vérification de l'état"] },
+  "V194": { name: "Vanne by-pass Alfa Laval (Alex)", actions: ["Contrôle des fuites produit et l'eau", "Vérification de l'état"] },
+  "FT41": { name: "Débitmètre FT41", actions: ["Vérification de l'état", "Contrôle de l'affichage"] },
+  "FT05": { name: "Débitmètre FT05", actions: ["Vérification de l'état", "Contrôle de l'affichage"] },
+  "V117": { name: "Vanne — circuit produit", actions: ["Contrôle des fuites produit et l'eau"] },
+};
 
 const CODE_LABELS = {
   REP:"Repos", ATT:"Attente", REM:"Remplissage", VID:"Vidange/Évacuation", CHF:"Chauffage",
@@ -418,12 +807,78 @@ buildKeypad();
 
 function clearInput(){ input.value=""; lookup(); input.focus(); }
 
+let MODE = 'steps';
+
+function setMode(m){
+  MODE = m;
+  document.getElementById('tabSteps').classList.toggle('active', m==='steps');
+  document.getElementById('tabAlarms').classList.toggle('active', m==='alarms');
+  document.getElementById('entryHint').textContent = m==='steps' ? 'ÉTAPE' : 'ALARME';
+  document.getElementById('headerSub').textContent = m==='steps'
+    ? "Tapez le numéro d'étape affiché sur l'automate"
+    : "Tapez le numéro d'alarme affiché sur l'automate";
+  input.value = '';
+  input.placeholder = '___';
+  document.getElementById('browseBtn').style.display = m==='steps' ? 'inline' : 'none';
+  document.getElementById('browse').classList.remove('show');
+  lookup();
+  input.focus();
+}
+
 function lookup(){
+  if(MODE === 'steps'){
+    document.getElementById('alarmCard').classList.remove('show');
+    lookupStep();
+  } else {
+    resultCard.classList.remove('show');
+    maintPanel.classList.remove('show');
+    lookupAlarm();
+  }
+}
+
+function lookupAlarm(){
+  const val = input.value.trim();
+  const emptyIcon = document.querySelector('#emptyState .big-icon');
+  const emptyText = document.getElementById('emptyState');
+  if(!val || !ALARMS[val]){
+    document.getElementById('alarmCard').classList.remove('show');
+    emptyState.style.display = 'block';
+    emptyState.innerHTML = `<div class="big-icon">🚨</div>Entrez le numéro d'alarme affiché sur l'écran (ex : 68) pour voir la cause et la solution.`;
+    return;
+  }
+  const a = ALARMS[val];
+  emptyState.style.display = 'none';
+  const card = document.getElementById('alarmCard');
+  card.classList.add('show');
+
+  const typeColors = { A: '#e0555a', B: '#e08a3c', C: '#4fb0ff' };
+  const typeLabels = { A: 'A · Verrouillage', B: 'B · Marche', C: 'C · État' };
+  document.getElementById('alarmStrip').style.background = typeColors[a.t] || '#e0555a';
+  document.getElementById('aCode').textContent = val;
+  document.getElementById('aCode').style.color = typeColors[a.t] || '#e0555a';
+  const badge = document.getElementById('aTypeBadge');
+  badge.textContent = typeLabels[a.t] || a.t;
+  badge.style.background = typeColors[a.t] || '#555';
+  document.getElementById('aTitle').textContent = a.title;
+
+  const causeBlock = document.getElementById('aCauseBlock');
+  if(a.cause){ causeBlock.style.display='block'; document.getElementById('aCause').textContent = a.cause; }
+  else { causeBlock.style.display='none'; }
+
+  const actionBlock = document.getElementById('aActionBlock');
+  if(a.action){ actionBlock.style.display='block'; document.getElementById('aAction').textContent = a.action; }
+  else { actionBlock.style.display='none'; }
+
+  document.getElementById('aInstr').textContent = a.instr || "Voir la documentation technique.";
+}
+
+function lookupStep(){
   const val = input.value.trim();
   maintPanel.classList.remove('show');
   if(!val || !DATA[val]){
     resultCard.classList.remove('show');
     emptyState.style.display = 'block';
+    emptyState.innerHTML = `<div class="big-icon">⌗</div>Entrez un numéro d'étape (ex : 133) pour afficher la phase, la description et les points de maintenance.`;
     return;
   }
   const row = DATA[val];
@@ -443,6 +898,16 @@ function lookup(){
   chip.textContent = row.c + " · " + (CODE_LABELS[row.c]||"");
   chip.style.background = CODE_COLORS[row.c] || "#555";
 
+  const transBox = document.getElementById('transBox');
+  const trans = TRANSITIONS[val];
+  if(trans){
+    transBox.style.display = 'block';
+    document.getElementById('transNext').textContent = trans.next;
+    document.getElementById('transCond').textContent = trans.cond;
+  } else {
+    transBox.style.display = 'none';
+  }
+
   const maintList = document.getElementById('maintList');
   maintList.innerHTML = "";
   const isVerified = VERIFIED_STEPS.has(Number(val));
@@ -454,19 +919,62 @@ function lookup(){
     badge.style.display = 'none';
   }
   document.getElementById('maintSource').textContent = isVerified
-    ? "Capturé sur l'écran de l'automate le 15/07/2026."
+    ? `Capturé sur l'écran de l'automate le ${VERIFIED_DATES[val] || '15/07/2026'}.`
     : "Estimé à partir du tableau technique — à confirmer sur site.";
   const items = MAINT[val];
   if(items && items.length){
     items.forEach(it=>{
       const div = document.createElement('div');
       div.className = 'maint-item';
-      div.innerHTML = `<span class="tag">${it.tag}</span><span>${it.text}</span>`;
+      const codeMatch = it.text.match(/\b([MV]\d+)\b/);
+      const code = codeMatch ? codeMatch[1] : null;
+      const hasPhoto = code && EQUIPMENT_PHOTOS[code];
+      const info2 = code ? EQUIPMENT_INFO[code] : null;
+      const hasInfo = !!info2;
+      const ic = hasPhoto ? '📷' : (hasInfo ? 'ℹ️' : '');
+      const roleHtml = (info2 && info2.name) ? `<div class="maint-item-role">${info2.name}</div>` : '';
+      div.innerHTML = `<span class="tag">${it.tag}</span><div class="maint-item-body"><span class="maint-item-text">${it.text}</span>${roleHtml}</div>${ic ? `<span class="photo-ic">${ic}</span>` : ''}`;
+      div.onclick = ()=> openPhoto(code, it.text);
+      if(hasPhoto || hasInfo) div.classList.add('has-photo');
       maintList.appendChild(div);
     });
   } else {
     maintList.innerHTML = `<div class="maint-empty">Points de maintenance pas encore renseignés pour cette étape. À compléter prochainement.</div>`;
   }
+}
+
+function openPhoto(code, label){
+  const modal = document.getElementById('photoModal');
+  const img = document.getElementById('photoModalImg');
+  const title = document.getElementById('photoModalTitle');
+  const empty = document.getElementById('photoModalEmpty');
+  const info = document.getElementById('photoModalInfo');
+  const info2 = code ? EQUIPMENT_INFO[code] : null;
+  title.textContent = (info2 && info2.name) ? `${code} — ${info2.name}` : label;
+
+  if(info2 && info2.actions && info2.actions.length){
+    info.innerHTML = `<div class="info-title">À contrôler :</div>` +
+      info2.actions.map(a=>`<div class="info-action">• ${a}</div>`).join('');
+    info.style.display = 'block';
+  } else {
+    info.innerHTML = '';
+    info.style.display = 'none';
+  }
+
+  const src = code ? EQUIPMENT_PHOTOS[code] : null;
+  if(src){
+    img.src = src;
+    img.style.display = 'block';
+    empty.style.display = 'none';
+  } else {
+    img.style.display = 'none';
+    empty.style.display = info2 ? 'none' : 'block';
+  }
+  modal.classList.add('show');
+}
+
+function closePhoto(){
+  document.getElementById('photoModal').classList.remove('show');
 }
 
 input.addEventListener('input', ()=>{ input.value = input.value.replace(/[^0-9]/g,''); lookup(); });
@@ -516,5 +1024,19 @@ if ('serviceWorker' in navigator) {
 
 input.focus();
 </script>
+<div class="photo-modal" id="photoModal" onclick="if(event.target===this) closePhoto()">
+  <div class="photo-modal-content">
+    <div class="photo-modal-header">
+      <span id="photoModalTitle"></span>
+      <button class="photo-modal-close" onclick="closePhoto()">✕</button>
+    </div>
+    <img id="photoModalImg" src="" alt="">
+    <div class="photo-modal-info" id="photoModalInfo"></div>
+    <div class="photo-modal-empty" id="photoModalEmpty">
+      <div class="photo-empty-icon">📷</div>
+      Photo pas encore disponible pour cet équipement.<br>Elle sera ajoutée prochainement.
+    </div>
+  </div>
+</div>
 </body>
 </html>
