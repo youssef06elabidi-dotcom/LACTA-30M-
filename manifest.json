@@ -1,7 +1,7 @@
 {
-  "name": "JIBAL — Les LACTA",
-  "short_name": "LACTA",
-  "description": "Guide technicien — séquences automate LACTA, Groupe Polmlek",
+  "name": "JIBAL — LACTA 30M",
+  "short_name": "LACTA 30M",
+  "description": "Guide technicien — LACTA 30M, Groupe Polmlek",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

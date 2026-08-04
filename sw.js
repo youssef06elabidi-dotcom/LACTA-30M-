@@ -1,4 +1,4 @@
-const CACHE_NAME = "lacta-jibal-v3";
+const CACHE_NAME = "lacta-jibal-v5";
 const ASSETS = [
   "./",
   "./index.html",
@@ -9,11 +9,26 @@ const ASSETS = [
   "./images/m6_m7.jpg",
   "./images/v122.jpg",
   "./images/v159.jpg",
-  "./images/v131_new.jpg",
+  "./images/v131.jpg",
   "./images/v143.jpg",
   "./images/v117.jpg",
   "./images/ft41.jpg",
   "./images/v193a.jpg"
+  "./images/v117.jpg"
+  "./images/v150.jpg"
+  "./images/v151.jpg"
+  "./images/v158.jpg"
+  "./images/v160.jpg"
+  "./images/v159.jpg"
+  "./images/v103.jpg"
+  "./images/v147.jpg"
+  "./images/v161.jpg"
+  "./images/v184.jpg"
+  "./images/v240.jpg"
+  "./images/v242.jpg"
+  "./images/PT87.jpg"
+  "./images/PT82.jpg"
+  "./images/PT90.jpg"
 ];
 
 self.addEventListener("install", (event) => {
